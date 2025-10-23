@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin - Add Blog Post</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="soft-bg">
+  <main class="container" style="max-width:600px; margin:auto; margin-top:50px;">
+    <h2>Add New Blog Post</h2>
+    <input type="text" id="title" placeholder="Post Title" style="width:100%; margin-bottom:10px; padding:8px;">
+    <input type="date" id="date" style="width:100%; margin-bottom:10px; padding:8px;">
+    <textarea id="content" placeholder="Post content" rows="10" style="width:100%; padding:8px;"></textarea>
+    <br><br>
+    <button onclick="submitPost()" style="padding:8px 16px; background:#efe2ff; border:none; cursor:pointer;">Publish</button>
+    <p id="status" style="margin-top:10px;"></p>
+  </main>
+
+  <script src="assets/js/admin.js"></script>
+</body>
+</html>
