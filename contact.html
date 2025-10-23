@@ -1,12 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact | Bunny’s Fantasy Blog</title>
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(180deg, #1c0f29 0%, #3b1a4a 100%);
+      overflow-x: hidden;
+      color: #fff;
+    }
+
+    /* Floating Orbs */
+    .orb {
+      position: fixed;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,255,255,0.7), transparent);
+      animation: float 12s infinite ease-in-out;
+      z-index: 0;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-30px) scale(1.1); }
+    }
+
+    /* Header & Footer */
+    header.floating-header, footer.footer {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(8px);
+      padding: 10px 0;
+    }
+
+    header h1 {
+      font-family: "Brush Script MT", cursive;
+      font-size: 2rem;
+      color: #f7e6ff;
+      margin: 0;
+    }
+
+    nav a {
+      color: #d7b0f5;
+      text-decoration: none;
+      margin: 0 10px;
+      font-size: 1rem;
+    }
+
+    /* Contact Form */
+    main {
+      position: relative;
+      z-index: 5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 80vh;
+      flex-direction: column;
+    }
+
+    .contact-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(12px);
+      border-radius: 15px;
+      padding: 30px 40px;
+      max-width: 420px;
+      width: 90%;
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.08);
+      text-align: center;
+    }
+
+    .contact-card h2 {
+      font-family: "Brush Script MT", cursive;
+      color: #f6e4ff;
+      margin-bottom: 20px;
+      font-size: 1.8rem;
+    }
+
+    .contact-card input, .contact-card textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 8px;
+      outline: none;
+      font-size: 1rem;
+      font-family: inherit;
+    }
+
+    .contact-card button {
+      background: linear-gradient(90deg, #c77dff, #9d4edd);
+      border: none;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: 0.3s;
+    }
+
+    .contact-card button:hover {
+      opacity: 0.9;
+      transform: scale(1.03);
+    }
+
+    footer {
+      font-size: 0.9rem;
+      padding: 15px;
+      color: #cfaaff;
+    }
+  </style>
 </head>
-<body class="soft-bg">
+<body>
+  <!-- Floating Orbs -->
+  <div class="orb" style="top:10%;left:20%;width:80px;height:80px;animation-delay:1s;"></div>
+  <div class="orb" style="top:40%;left:70%;width:100px;height:100px;animation-delay:2s;"></div>
+  <div class="orb" style="top:70%;left:30%;width:60px;height:60px;animation-delay:3s;"></div>
+  <div class="orb" style="top:20%;left:80%;width:90px;height:90px;animation-delay:4s;"></div>
+
   <header class="floating-header">
     <h1>Bunny’s Fantasy Blog</h1>
     <nav>
@@ -16,28 +130,22 @@
     </nav>
   </header>
 
-  <main class="contact-container">
-    <section class="contact-card soft-float">
-      <h2>Let’s Connect 🌙</h2>
-      <p>Have something to say? I’d love to hear your thoughts, emotions, or stories.</p>
-
-      <form action="https://formsubmit.co/5m0k3r.706118@gmail.com" method="POST" class="contact-form">
+  <main>
+    <div class="contact-card">
+      <h2>Send Your Feelings to Bunny 🌙</h2>
+      <form action="https://formsubmit.co/5m0k3r.706118@gmail.com" method="POST">
+        <input type="hidden" name="_next" value="https://bunnnyyyzzz.github.io/mywebproject/thankyou.html">
+        <input type="hidden" name="_captcha" value="false">
         <input type="text" name="name" placeholder="Your Name" required>
         <input type="email" name="email" placeholder="Your Email" required>
-        <textarea name="message" placeholder="Write your message here..." rows="6" required></textarea>
-
-        <input type="hidden" name="_next" value="https://bunnysfantasyblog.github.io/thank-you.html">
-        <input type="hidden" name="_captcha" value="false">
-
-        <button type="submit" class="soft-btn">Send Message 💌</button>
+        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
       </form>
-    </section>
+    </div>
   </main>
 
   <footer class="footer">
-    <p>© 2025 Bunny’s Fantasy Blog ✨ | Made with dreams and moonlight</p>
+    <p>© 2025 Bunny’s Fantasy Blog ✨ | Written with heart and moonlight</p>
   </footer>
-
-  <script src="assets/js/script.js"></script>
 </body>
 </html>
