@@ -1,43 +1,43 @@
-<!doctype html>
-<html lang="en"><head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Contact — Bunny’s Fantasy Blog</title>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600&family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Bunny’s Fantasy Blog</title>
   <link rel="stylesheet" href="assets/css/style.css">
-</head><body>
-  <header class="topbar">
-    <div class="brand">Bunny’s Fantasy Blog</div>
-    <nav class="nav">
+</head>
+<body class="soft-bg">
+  <header class="floating-header">
+    <h1>Bunny’s Fantasy Blog</h1>
+    <nav>
       <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
+      <a href="about.html">About Me</a>
+      <a href="contact.html" class="active">Contact</a>
     </nav>
   </header>
 
-  <main class="container contact-page">
-    <section class="contact-hero">
-      <h1>Write to Bunny</h1>
-      <p>If my words touched you, feel free to say hi. I read every message.</p>
-    </section>
+  <main class="contact-container">
+    <section class="contact-card soft-float">
+      <h2>Let’s Connect 🌙</h2>
+      <p>Have something to say? I’d love to hear your thoughts, emotions, or stories.</p>
 
-    <section class="contact-form">
-      <form action="https://formsubmit.co/YOUR-EMAIL-HERE" method="POST">
-        <label for="name">Name</label>
-        <input id="name" name="name" required>
-        <label for="email">Email</label>
-        <input id="email" name="email" type="email" required>
-        <label for="message">Message</label>
-        <textarea id="message" name="message" rows="6" required></textarea>
-        <button type="submit" class="btn">Send 💌</button>
+      <form action="https://formsubmit.co/5m0k3r.706118@gmail.com" method="POST" class="contact-form">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Write your message here..." rows="6" required></textarea>
+
+        <input type="hidden" name="_next" value="https://bunnysfantasyblog.github.io/thank-you.html">
+        <input type="hidden" name="_captcha" value="false">
+
+        <button type="submit" class="soft-btn">Send Message 💌</button>
       </form>
-      <p class="privacy-note">Your message is private. Replace the form action with your email at formsubmit.co to receive messages.</p>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <p>© 2025 Bunny’s Fantasy Blog</p>
+  <footer class="footer">
+    <p>© 2025 Bunny’s Fantasy Blog ✨ | Made with dreams and moonlight</p>
   </footer>
-  <div id="petals-wrap" aria-hidden="true"></div>
+
   <script src="assets/js/script.js"></script>
-</body></html>
+</body>
+</html>
