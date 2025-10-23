@@ -8,7 +8,7 @@
 </head>
 <body class="soft-bg">
 
-  <!-- Header / Navigation -->
+  <!-- Header -->
   <header class="topbar">
     <div class="brand">Bunny’s Fantasy Blog</div>
     <nav class="nav">
@@ -19,19 +19,20 @@
     </nav>
   </header>
 
+  <!-- Main Content -->
   <main class="container blog-list">
     <h1>All Blog Posts</h1>
 
     <!-- Password Section -->
-    <div id="login-section" style="margin-top:20px; text-align:center;">
+    <div id="login-section" style="margin-top:30px; text-align:center;">
       <p>Enter the password to access the blog posts:</p>
-      <input type="password" id="blog-password" placeholder="Password" style="padding:5px 10px; border-radius:5px;">
-      <button onclick="checkPassword()" style="padding:5px 10px; border-radius:5px; cursor:pointer;">Enter</button>
+      <input type="password" id="blog-password" placeholder="Password" style="padding:6px 12px; border-radius:5px; border:1px solid #ccc;">
+      <button onclick="checkPassword()" style="padding:6px 12px; border-radius:5px; border:none; cursor:pointer; background:#efe2ff; color:#2b2030; font-weight:bold; margin-left:5px;">Enter</button>
       <p id="login-error" style="color:red; margin-top:10px;"></p>
     </div>
 
-    <!-- Post List -->
-    <ul id="posts-list" style="display:none; margin-top:20px; list-style-type:none; padding:0;"></ul>
+    <!-- Blog Post List -->
+    <ul id="posts-list" style="display:none; margin-top:30px; list-style:none; padding:0;"></ul>
   </main>
 
   <!-- Footer -->
