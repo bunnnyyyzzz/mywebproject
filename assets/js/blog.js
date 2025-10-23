@@ -1,5 +1,5 @@
 // === Password & Automatic Blog Post Listing ===
-const correctPassword = "mypassword123"; // change to your password
+const correctPassword = "bunny123"; // CHANGE this to your preferred password
 const postsList = document.getElementById("posts-list");
 const loginSection = document.getElementById("login-section");
 const loginError = document.getElementById("login-error");
@@ -22,8 +22,10 @@ async function loadPosts() {
     const posts = await response.json();
     postsList.innerHTML = "";
 
-    posts.sort((a, b) => new Date(b.date) - new Date(a.date)); // newest first
+    // Sort newest first
+    posts.sort((a, b) => new Date(b.date) - new Date(a.date));
 
+    // Display each post
     posts.forEach(post => {
       const li = document.createElement("li");
       li.style.marginBottom = "15px";
