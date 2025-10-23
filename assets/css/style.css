@@ -139,3 +139,21 @@ body {
 body.soft-bg::after {
   display: none !important;
 }
+
+#petals-wrap {
+  z-index: 0 !important;
+}
+
+.posts-grid,
+.card,
+.container {
+  position: relative;
+  z-index: 5 !important;
+}
+
+body::before,
+body::after {
+  display: none !important;
+}
+
+
