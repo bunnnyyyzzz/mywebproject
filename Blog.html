@@ -3,37 +3,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Personal Blog | Bunny’s Fantasy Blog</title>
+  <title>Blog | Bunny’s Fantasy Blog</title>
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body class="soft-bg">
 
-  <!-- Floating Orbs -->
-  <div id="orbs"></div>
-
+  <!-- Header / Navigation -->
   <header class="topbar">
     <div class="brand">Bunny’s Fantasy Blog</div>
     <nav class="nav">
       <a href="index.html">Home</a>
       <a href="about.html">About Me</a>
-      <a href="posts.html">Posts</a>
+      <a href="Blog.html">Blog</a>
       <a href="contact.html">Contact</a>
     </nav>
   </header>
 
-  <main class="container post-page">
-    <article class="post">
-      <h1 class="post-title">The Kissed Story</h1>
-      <p class="post-meta">20 Oct 2025, Morning</p>
-      <p>
-        Last night felt unreal. I was lying there, half-asleep, when she quietly came closer. I offered a handshake, and instead, she pressed a soft kiss to my cheek. My heart skipped, thumped, and raced so fast I could feel it in my chest and under me, as if the bed itself was alive with it. Every second felt electric, and I never wanted it to end.
-      </p>
-    </article>
+  <main class="container blog-list">
+    <h1>All Blog Posts</h1>
+
+    <!-- Password Section -->
+    <div id="login-section" style="margin-top:20px; text-align:center;">
+      <p>Enter the password to access the blog posts:</p>
+      <input type="password" id="blog-password" placeholder="Password" style="padding:5px 10px; border-radius:5px;">
+      <button onclick="checkPassword()" style="padding:5px 10px; border-radius:5px; cursor:pointer;">Enter</button>
+      <p id="login-error" style="color:red; margin-top:10px;"></p>
+    </div>
+
+    <!-- Post List -->
+    <ul id="posts-list" style="display:none; margin-top:20px; list-style-type:none; padding:0;"></ul>
   </main>
 
-  <footer class="site-footer">
-    <p>© 2025 Bunny’s Fantasy Blog ✨ | Written with heart and moonlight</p>
+  <!-- Footer -->
+  <footer class="site-footer" style="margin-top:50px; text-align:center; color:#6e6170;">
+    <p>© 2025 Bunny’s Fantasy Blog | Written with heart and moonlight</p>
   </footer>
 
+  <!-- Blog JS -->
+  <script src="assets/js/blog.js"></script>
 </body>
 </html>
