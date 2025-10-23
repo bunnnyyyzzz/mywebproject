@@ -8,7 +8,7 @@
 </head>
 <body class="soft-bg">
 
-  <!-- Header -->
+  <!-- Header / Navigation -->
   <header class="topbar">
     <div class="brand">Bunny’s Fantasy Blog</div>
     <nav class="nav">
@@ -22,17 +22,7 @@
   <!-- Main Content -->
   <main class="container blog-list">
     <h1>All Blog Posts</h1>
-
-    <!-- Password Section -->
-    <div id="login-section" style="margin-top:30px; text-align:center;">
-      <p>Enter the password to access the blog posts:</p>
-      <input type="password" id="blog-password" placeholder="Password" style="padding:6px 12px; border-radius:5px; border:1px solid #ccc;">
-      <button onclick="checkPassword()" style="padding:6px 12px; border-radius:5px; border:none; cursor:pointer; background:#efe2ff; color:#2b2030; font-weight:bold; margin-left:5px;">Enter</button>
-      <p id="login-error" style="color:red; margin-top:10px;"></p>
-    </div>
-
-    <!-- Blog Post List -->
-    <ul id="posts-list" style="display:none; margin-top:30px; list-style:none; padding:0;"></ul>
+    <ul id="posts-list" style="margin-top:30px; list-style:none; padding:0;"></ul>
   </main>
 
   <!-- Footer -->
@@ -40,7 +30,6 @@
     <p>© 2025 Bunny’s Fantasy Blog | Written with heart and moonlight</p>
   </footer>
 
-  <!-- Blog JS -->
   <script src="assets/js/blog.js"></script>
 </body>
 </html>
