@@ -1,10 +1,13 @@
-// Automatically load blog posts
 const postsList = document.getElementById("posts-list");
 
 async function loadPosts() {
   try {
+    // Correct path to posts.json from Blog.html (root folder)
     const response = await fetch('posts.json');
+    if (!response.ok) throw new Error("posts.json not found");
     const posts = await response.json();
+
+    // Clear the list
     postsList.innerHTML = "";
 
     // Sort newest first
@@ -21,6 +24,7 @@ async function loadPosts() {
       `;
       postsList.appendChild(li);
     });
+
   } catch(err) {
     postsList.innerHTML = "<li style='color:red;'>Error loading posts.</li>";
     console.error(err);
