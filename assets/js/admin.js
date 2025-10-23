@@ -1,20 +1,18 @@
-// CONFIG - replace these with your own GitHub repo info
-const owner = "YOUR_GITHUB_USERNAME";
-const repo = "YOUR_REPO_NAME";
-const branch = "main";
-const token = "YOUR_PERSONAL_ACCESS_TOKEN"; // Never expose in public production
-
 async function submitPost() {
   const title = document.getElementById("title").value.trim();
   const date = document.getElementById("date").value;
   const content = document.getElementById("content").value.trim();
+  const token = document.getElementById("token").value.trim();
   const status = document.getElementById("status");
 
-  if (!title || !date || !content) {
-    status.textContent = "Please fill all fields.";
+  if (!title || !date || !content || !token) {
+    status.textContent = "Please fill all fields including your GitHub token.";
     return;
   }
 
+  const owner = "YOUR_GITHUB_USERNAME"; // Replace
+  const repo = "YOUR_REPO_NAME";        // Replace
+  const branch = "main";                // Replace if needed
   const slug = title.toLowerCase().replace(/ /g, "-").replace(/[^\w-]+/g, "");
   const filename = `posts/${slug}.html`;
 
@@ -55,10 +53,7 @@ async function submitPost() {
     // Create new post HTML
     await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${filename}`, {
       method: "PUT",
-      headers: {
-        "Authorization": `token ${token}`,
-        "Content-Type": "application/json"
-      },
+      headers: { "Authorization": `token ${token}`, "Content-Type": "application/json" },
       body: JSON.stringify({
         message: `Add new post: ${title}`,
         content: btoa(htmlContent),
