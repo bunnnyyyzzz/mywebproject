@@ -1,5 +1,12 @@
-{
-  "title": "My New Story",
-  "file": "posts/my-new-story.html",
-  "date": "2025-10-25"
-}
+[
+  {
+    "title": "The Kissed Story",
+    "file": "posts/the-kissed-story.html",
+    "date": "2025-10-20"
+  },
+  {
+    "title": "My New Story",
+    "file": "posts/my-new-story.html",
+    "date": "2025-10-25"
+  }
+]
