@@ -1,21 +1,6 @@
-// === Password & Automatic Blog Post Listing ===
-const correctPassword = "bunny123"; // CHANGE this to your preferred password
+// Automatically load blog posts
 const postsList = document.getElementById("posts-list");
-const loginSection = document.getElementById("login-section");
-const loginError = document.getElementById("login-error");
 
-function checkPassword() {
-  const entered = document.getElementById("blog-password").value;
-  if (entered === correctPassword) {
-    loginSection.style.display = "none";
-    postsList.style.display = "block";
-    loadPosts();
-  } else {
-    loginError.textContent = "Incorrect password. Try again!";
-  }
-}
-
-// Load posts from posts.json and display
 async function loadPosts() {
   try {
     const response = await fetch('posts.json');
@@ -23,9 +8,8 @@ async function loadPosts() {
     postsList.innerHTML = "";
 
     // Sort newest first
-    posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+    posts.sort((a,b) => new Date(b.date) - new Date(a.date));
 
-    // Display each post
     posts.forEach(post => {
       const li = document.createElement("li");
       li.style.marginBottom = "15px";
@@ -37,8 +21,10 @@ async function loadPosts() {
       `;
       postsList.appendChild(li);
     });
-  } catch (err) {
+  } catch(err) {
     postsList.innerHTML = "<li style='color:red;'>Error loading posts.</li>";
     console.error(err);
   }
 }
+
+window.addEventListener('DOMContentLoaded', loadPosts);
