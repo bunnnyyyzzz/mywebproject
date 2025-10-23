@@ -1,1 +1,110 @@
+/* Bunny's Fantasy Blog — style.css
+   Soft fantasy theme: lavender/pink, faded image background, cursive titles.
+*/
 
+:root{
+  --bg-image: url('../assets/images/bg-soft.jpg');
+  --accent-1: #f7e6f2;
+  --accent-2: #efe2ff;
+  --text: #2b2030;
+  --muted: #6e6170;
+  --card: rgba(255,255,255,0.85);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:'Open Sans',system-ui,Arial,sans-serif;background-color:var(--accent-1);color:var(--text)}
+body{
+  background-image: linear-gradient(180deg, rgba(255,250,255,0.6), rgba(245,240,255,0.6)), var(--bg-image);
+  background-size:cover;
+  background-position:center;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* Top floating bar */
+.topbar{
+  position:sticky;
+  top:12px;
+  margin:12px auto;
+  max-width:1100px;
+  backdrop-filter: blur(6px);
+  background: linear-gradient(90deg, rgba(255,255,255,0.45), rgba(255,255,255,0.25));
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:10px 18px;
+  box-shadow:0 6px 18px rgba(20,10,30,0.06);
+  z-index:50;
+}
+
+.brand{
+  font-family:'Great Vibes', cursive;
+  font-size:28px;
+  color:#3a2540;
+  letter-spacing:0.4px;
+}
+
+.nav a{
+  margin-left:14px;
+  text-decoration:none;
+  color:var(--muted);
+  font-weight:600;
+  font-size:14px;
+}
+
+/* Main container */
+.container{max-width:1100px;margin:48px auto;padding:0 20px}
+
+/* Intro */
+.intro{ text-align:center;margin-bottom:28px }
+.intro h1{ font-family:'Playfair Display', serif;font-size:44px;margin:6px 0;color:#382746 }
+.tagline{ color:var(--muted);margin-top:6px;font-size:16px}
+
+/* Posts grid */
+.posts-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:22px;
+  align-items:start;
+}
+
+.card{
+  background:var(--card);
+  border-radius:14px;
+  padding:20px;
+  min-height:160px;
+  box-shadow:0 8px 30px rgba(30,20,40,0.05);
+}
+
+.post-title{ font-family:'Great Vibes',cursive;font-size:26px;margin:0 0 6px;color:#3a2540 }
+.post-meta{ font-size:13px;color:var(--muted);margin-bottom:8px }
+.post-excerpt{ font-size:15px;color:#3b2d3f;line-height:1.5 }
+
+.readmore{ display:inline-block;margin-top:12px;text-decoration:none;font-weight:600;color:#3a2540 }
+
+/* Footer */
+.site-footer{ text-align:center;padding:26px 10px;color:var(--muted);font-size:14px;margin-top:36px }
+
+/* Post page */
+.post-page .post{ background:rgba(255,255,255,0.9);padding:28px;border-radius:10px;max-width:800px;margin:20px auto;box-shadow:0 10px 30px rgba(30,20,40,0.06) }
+.post-page .post-title{ font-family:'Playfair Display',serif;font-size:34px }
+.post-meta{ margin-bottom:18px }
+
+/* About & contact */
+.about-page .about-hero, .contact-page .contact-hero{ background:rgba(255,255,255,0.85);padding:28px;border-radius:12px;margin-bottom:18px }
+
+.contact-form form{ display:grid; gap:10px; max-width:600px }
+.contact-form input, .contact-form textarea{ padding:10px;border-radius:8px;border:1px solid rgba(80,60,80,0.06);font-size:15px }
+.btn{ background:#e9d6f0;border:none;padding:10px 14px;border-radius:8px;font-weight:700;cursor:pointer }
+
+/* Responsive */
+@media (max-width:800px){
+  .posts-grid{ grid-template-columns:1fr }
+  .brand{ font-size:22px }
+  .intro h1{ font-size:32px }
+}
+
+/* Petals and stars wrapper (will be filled by JS) */
+#petals-wrap{position:fixed;left:0;top:0;right:0;bottom:0;pointer-events:none;z-index:10;overflow:hidden}
+.petal{ position:absolute; font-size:14px; opacity:0.9; transform:translate3d(0,0,0) }
