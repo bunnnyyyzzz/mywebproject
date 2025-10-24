@@ -1,21 +1,19 @@
-async function submitPost() {
+function publishPost() {
   const title = document.getElementById("title").value.trim();
   const date = document.getElementById("date").value;
   const content = document.getElementById("content").value.trim();
-  const token = document.getElementById("token").value.trim();
   const status = document.getElementById("status");
 
-  if (!title || !date || !content || !token) {
-    status.textContent = "Please fill all fields including your GitHub token.";
+  if (!title || !date || !content) {
+    status.textContent = "Please fill in all fields.";
     return;
   }
 
-  const owner = "YOUR_GITHUB_USERNAME"; // Replace
-  const repo = "YOUR_REPO_NAME";        // Replace
-  const branch = "main";                // Replace if needed
+  // Generate slug
   const slug = title.toLowerCase().replace(/ /g, "-").replace(/[^\w-]+/g, "");
   const filename = `posts/${slug}.html`;
 
+  // Create post HTML content
   const htmlContent = `
 <!DOCTYPE html>
 <html lang="en">
@@ -49,43 +47,23 @@ async function submitPost() {
 </html>
 `;
 
-  try {
-    // Create new post HTML
-    await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${filename}`, {
-      method: "PUT",
-      headers: { "Authorization": `token ${token}`, "Content-Type": "application/json" },
-      body: JSON.stringify({
-        message: `Add new post: ${title}`,
-        content: btoa(htmlContent),
-        branch: branch
-      })
-    });
+  // Save post locally (simulate download)
+  const blob = new Blob([htmlContent], { type: "text/html" });
+  const link = document.createElement("a");
+  link.href = URL.createObjectURL(blob);
+  link.download = filename;
+  link.click();
 
-    // Fetch posts.json
-    const postsRes = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/posts.json`, {
-      headers: { "Authorization": `token ${token}` }
-    });
-    const postsData = await postsRes.json();
-    const postsJson = JSON.parse(atob(postsData.content));
+  // Update posts.json locally (simulate download)
+  const postsJson = localStorage.getItem("posts") ? JSON.parse(localStorage.getItem("posts")) : [];
+  postsJson.push({ title, file: filename, date });
+  localStorage.setItem("posts", JSON.stringify(postsJson));
 
-    // Add new post entry
-    postsJson.push({ title, file: filename, date });
+  const postsBlob = new Blob([JSON.stringify(postsJson, null, 2)], { type: "application/json" });
+  const postsLink = document.createElement("a");
+  postsLink.href = URL.createObjectURL(postsBlob);
+  postsLink.download = "posts.json";
+  postsLink.click();
 
-    // Update posts.json
-    await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/posts.json`, {
-      method: "PUT",
-      headers: { "Authorization": `token ${token}`, "Content-Type": "application/json" },
-      body: JSON.stringify({
-        message: `Update posts.json with new post: ${title}`,
-        content: btoa(JSON.stringify(postsJson, null, 2)),
-        sha: postsData.sha,
-        branch: branch
-      })
-    });
-
-    status.textContent = "Post published successfully!";
-  } catch (err) {
-    console.error(err);
-    status.textContent = "Error publishing post. Check console.";
-  }
+  status.textContent = `Post "${title}" generated! Download HTML and posts.json and upload to your site.`;
 }
