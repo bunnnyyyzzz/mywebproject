@@ -47,23 +47,29 @@ function publishPost() {
 </html>
 `;
 
-  // Save post locally (simulate download)
+  // Download new post HTML
   const blob = new Blob([htmlContent], { type: "text/html" });
   const link = document.createElement("a");
   link.href = URL.createObjectURL(blob);
   link.download = filename;
   link.click();
 
-  // Update posts.json locally (simulate download)
-  const postsJson = localStorage.getItem("posts") ? JSON.parse(localStorage.getItem("posts")) : [];
+  // Load existing posts from localStorage
+  let postsJson = [];
+  if (localStorage.getItem("posts")) {
+    postsJson = JSON.parse(localStorage.getItem("posts"));
+  }
+
+  // Append new post
   postsJson.push({ title, file: filename, date });
   localStorage.setItem("posts", JSON.stringify(postsJson));
 
+  // Download updated posts.json
   const postsBlob = new Blob([JSON.stringify(postsJson, null, 2)], { type: "application/json" });
   const postsLink = document.createElement("a");
   postsLink.href = URL.createObjectURL(postsBlob);
   postsLink.download = "posts.json";
   postsLink.click();
 
-  status.textContent = `Post "${title}" generated! Download HTML and posts.json and upload to your site.`;
+  status.textContent = `Post "${title}" generated! Old posts are preserved. Download HTML and posts.json and upload to your site.`;
 }
